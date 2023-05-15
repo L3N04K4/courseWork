@@ -1,10 +1,10 @@
 <?php
 // Подключение к базе данных
-$db = 'yakusheva_database';
-$username = 'root';
-$password = '';
+$db = 'std_2070_bd';
+$username = 'std_2070_bd';
+$password = '12345678';
 
-$conn = new mysqli('localhost', $username, $password, $db);
+$conn = new mysqli('std-mysql', $username, $password, $db);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
