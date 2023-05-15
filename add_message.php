@@ -1,10 +1,10 @@
 <?php
 // Подключение к базе данных
-$db = 'std_2070_bd';
-$username = 'std_2070_bd';
-$password = '12345678';
+$db = 'yakusheva_database';
+$username = 'root';
+$password = '';
 
-$conn = new mysqli('std-mysql', $username, $password, $db);
+$conn = new mysqli('localhost', $username, $password, $db);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -28,11 +28,6 @@ foreach($hashtags as $tag) {
 // Добавление сообщения
 $sql = "INSERT INTO sms (hashtag_id,description)
 VALUES ('$hashtag_id', '$description')";
-if ($conn->query($sql) === TRUE) {
-  $sms_id = $conn->insert_id;  // id добавленного сообщения
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
   header("Location: done.html");
 $conn->close();
