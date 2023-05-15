@@ -28,6 +28,11 @@ foreach($hashtags as $tag) {
 // Добавление сообщения
 $sql = "INSERT INTO sms (hashtag_id,description)
 VALUES ('$hashtag_id', '$description')";
+if ($conn->query($sql) === TRUE) {
+  $sms_id = $conn->insert_id;  // id добавленного сообщения
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
   header("Location: done.html");
 $conn->close();
